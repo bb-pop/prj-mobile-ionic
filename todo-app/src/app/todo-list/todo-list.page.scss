@@ -1,0 +1,73 @@
+page-todo-list {
+    ion-header {
+      --background: #ffffff;
+      --color: #333333;
+      ion-toolbar {
+        ion-title {
+          font-family: 'Arial, sans-serif';
+          font-size: 24px;
+          font-weight: bold;
+        }
+        ion-buttons {
+          ion-button {
+            --border-radius: 20px;
+            --padding-start: 16px;
+            --padding-end: 16px;
+            --padding-top: 8px;
+            --padding-bottom: 8px;
+            --background: var(--ion-color-primary);
+            --color: white;
+          }
+          ion-icon {
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+  
+    ion-content {
+      --background: #f2f2f7;
+  
+      .todo-item {
+        --background: white;
+        --border-radius: 12px;
+        --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        margin: 10px;
+        padding: 10px 16px;
+        ion-label {
+          h2 {
+            font-size: 18px;
+            margin-bottom: 4px;
+          }
+          p {
+            font-size: 14px;
+            color: #666;
+          }
+        }
+        &.completed {
+          ion-label {
+            h2, p {
+              text-decoration: line-through;
+              color: #999;
+            }
+          }
+        }
+      }
+  
+      ion-item-options {
+        ion-item-option {
+          --background: var(--ion-color-primary);
+          &.success {
+            --background: var(--ion-color-success);
+          }
+          &.danger {
+            --background: var(--ion-color-danger);
+          }
+          ion-icon {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+  

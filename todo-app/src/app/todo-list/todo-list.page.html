@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>To-Do List</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="presentTodoAlert()" fill="solid" color="primary">
+        <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+        Add
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none">
+    <ion-item-sliding *ngFor="let todo of todos">
+      <ion-item [ngClass]="{'completed': todo.completed}" class="todo-item">
+        <ion-label>
+          <h2>{{ todo.title }}</h2>
+          <p>{{ todo.description }}</p>
+        </ion-label>
+        <ion-badge *ngIf="todo.completed" color="success" slot="end">Done</ion-badge>
+      </ion-item>
+      <ion-item-options side="start">
+        <ion-item-option color="success" (click)="toggleCompletion(todo)">
+          <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+      <ion-item-options side="end">
+        <ion-item-option color="primary" (click)="editTodo(todo)">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="deleteTodo(todo.id)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
